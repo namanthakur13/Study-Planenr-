@@ -2,4 +2,31 @@ body {
   background-color: #f4f4f4;
   color: #333;
   font-family: sans-serif;
+  margin: 0;
+  padding: 20px;
 }
+
+#root {
+  max-width: 600px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 8px 0;
+  font-size: 18px;
+}
+
