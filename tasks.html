@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Study Planner</h2>
+    <ul>
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="tasks.html" class="active">Task Planner</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+    
+    </div>
+  </div>
+
+  <div class="main-content tasks-content">
+    <h1>Task Planner</h1>
+
+    <div class="subjects-container" id="subjectsContainer">
+      <!-- Subjects will be dynamically added here -->
+    </div>
+
+    <div class="add-subject">
+      <input type="text" id="newSubjectInput" placeholder="Add new subject (e.g. Football)" />
+      <button onclick="addSubject()">Add Subject</button>
+    </div>
+  </div>
+
+  <script src="App.js"></script>
+</body>
+</html>

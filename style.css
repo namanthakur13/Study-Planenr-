@@ -1,32 +1,504 @@
+
+/* General Body Styles */
 body {
-  background-color: #f4f4f4;
-  color: #333;
-  font-family: sans-serif;
   margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 200px;
+  background-color: #2c3e50;
+  color: white;
+  position: fixed;
+  height: 100vh;
   padding: 20px;
 }
 
-#root {
-  max-width: 600px;
-  margin: 50px auto;
-  background: white;
+.sidebar h2 {
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar ul li a.active,
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 220px;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* Main Content styling */
+.main-content h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+/* Stats boxes */
+.stats {
+  display: flex;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-box {
+  background-color: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  flex: 1;
+  text-align: center;
+  user-select: none;
+}
+
+.stat-box h3 {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  color: #34495e;
+}
+
+.stat-box p {
+  font-size: 28px;
+  font-weight: 800;
+  color: #3498db;
+  margin: 0;
+}
+
+/* Stopwatch container */
+.stopwatch-container {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+  user-select: none;
+}
+
+.stopwatch-container h2 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+#stopwatch {
+  font-size: 48px;
+  font-weight: 800;
+  color: #2980b9;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.stopwatch-buttons {
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 10px;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-li {
-  margin: 8px 0;
+.stopwatch-buttons button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  margin: 0 8px;
   font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.stopwatch-buttons button:hover {
+  background-color: #2980b9;
+}
+
+/* Study Log */
+.history {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.history h2 {
+  font-weight: 700;
+  font-size: 26px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+#historyList {
+  max-height: 250px;
+  overflow-y: auto;
+  list-style-type: none;
+  padding-left: 0;
+  color: #34495e;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+#historyList li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+#historyList li:last-child {
+  border-bottom: none;
+}
+
+/* Smaller dropdown menus for 3-dot options */
+.three-dot-menu .dropdown {
+  min-width: 110px; /* narrower width */
+  font-size: 14px;  /* smaller font size */
+  padding: 0; /* remove extra padding for dropdown */
+}
+
+.three-dot-menu .dropdown div {
+  padding: 8px 12px; /* smaller padding */
+  font-weight: 600;
+  color: #e74c3c;
+  white-space: nowrap; /* prevent line wrap */
+  transition: background-color 0.2s ease;
+}
+
+.three-dot-menu .dropdown div:hover {
+  background-color: #f2f2f2;
+}
+
+/* Adjust three-dot icon padding for better alignment */
+.three-dot-menu {
+  font-size: 20px;
+  padding: 4px 6px;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+/* TASKS PLANNER KANBAN STYLES */
+
+.tasks-content h1 {
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* UPDATED: Make subjects stack in grid with 3 per row */
+.subjects-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding-bottom: 20px;
+  /* Removed overflow-x: auto; */
+}
+
+.subject-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  /* fixed width removed so it can adjust in grid */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 600px;
+}
+
+.subject-header {
+  padding: 15px 20px;
+  background-color: #3498db;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.subject-header .three-dot-menu {
+  font-size: 18px;
+  color: white;
+  position: relative;
+}
+
+.subject-header .dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 10;
+  min-width: 110px;
+}
+
+.subject-header .dropdown div {
+  padding: 8px 12px;
+  font-weight: 600;
+  color: #e74c3c;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.subject-header .dropdown div:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown */
+.subject-header .three-dot-menu.open .dropdown {
+  display: block;
+}
+
+/* Task list */
+.task-list {
+  padding: 15px 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  background: #f7f9fc;
+}
+
+/* Individual task */
+.task-item {
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  color: #2c3e50;
+  cursor: default;
+}
+
+.task-item .three-dot-menu {
+  font-size: 18px;
+  position: relative;
+  color: #888;
+  cursor: pointer;
+}
+
+.task-item .dropdown {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: none;
+  z-index: 10;
+  min-width: 110px;
+}
+
+.task-item .dropdown div {
+  padding: 6px 12px;
+  font-weight: 600;
+  color: #e74c3c;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 14px;
+}
+
+.task-item .dropdown div:hover {
+  background-color: #f2f2f2;
+}
+
+/* Show dropdown */
+.task-item .three-dot-menu.open .dropdown {
+  display: block;
+}
+
+/* Add task input/button */
+.add-task-container {
+  padding: 10px 20px;
+  border-top: 1px solid #ddd;
+  background: white;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  display: flex;
+  gap: 10px;
+}
+
+.add-task-container input {
+  flex-grow: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.add-task-container button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.add-task-container button:hover {
+  background-color: #2980b9;
+}
+
+/* Add subject container */
+.add-subject {
+  margin-top: 30px;
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+  margin-left: 20px;
+}
+
+.add-subject input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.add-subject button {
+  background-color: #2ecc71;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.add-subject button:hover {
+  background-color: #27ae60;
+}
+
+/* Collapse icon */
+.collapse-icon {
+  font-size: 18px;
+  user-select: none;
+  margin-left: 10px;
+  color: #ecf0f1;
+}
+
+/* Scrollbar styling for task lists */
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.task-list::-webkit-scrollbar-thumb {
+  background-color: #bdc3c7;
+  border-radius: 3px;
+}
+
+.task-list::-webkit-scrollbar-track {
+  background-color: #f7f9fc;
+}
+
+/* LOGIN & SIGNUP PAGE STYLES */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;              /* Full viewport height */
+  background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient background */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+
+.auth-container {
+  background: white;
+  padding: 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  width: 320px;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.auth-container h2 {
+  margin-bottom: 25px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 28px;
+}
+
+.auth-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+.auth-container button {
+  width: 100%;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.auth-container button:hover {
+  background-color: #2980b9;
+}
+
+.auth-container p {
+  font-size: 14px;
+  color: #555;
+}
+
+.auth-container p a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.auth-container p a:hover {
+  color: #2980b9;
+  text-decoration: underline;
 }
 

@@ -1,21 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Planner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Study Planner Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="root">
-    <h1>📚 Study Planner</h1>
-    <p>Welcome to your productivity dashboard!</p>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>Study Planner</h2>
+
     <ul>
-      <li>✅ Task tracking</li>
-      <li>📆 Weekly planner</li>
-      <li>⏰ Focus timer</li>
+      <li><a href="index.html" class="active">Dashboard</a></li>
+      <li><a href="tasks.html">Task Planner</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
     </ul>
-    <p>Start building your features here!</p>
   </div>
+
+  <!-- Main Content -->
+  <div class="main-content">
+    <h1>Dashboard</h1>
+
+    <div class="stats">
+      <div class="stat-box">
+        <h3>Tasks Pending</h3>
+        <p id="pendingTasks">0</p>
+      </div>
+      <div class="stat-box">
+        <h3>Total Hours Studied</h3>
+        <p id="totalHours">0 hrs</p>
+      </div>
+      <div class="stat-box">
+        <h3>Avg Study Time (Weekly)</h3>
+        <p id="avgTime">0 mins/day</p>
+      </div>
+    </div>
+
+    <div class="stopwatch-container">
+      <h2>Study Stopwatch</h2>
+      <div id="stopwatch">00:00:00</div>
+      <div class="stopwatch-buttons">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="stopTimer()">Stop</button>
+        <button onclick="resetTimer()">Reset</button>
+      </div>
+    </div>
+
+    <div class="history">
+      <h2>Study Log</h2>
+      <ul id="historyList"></ul>
+    </div>
+  </div>
+
+  <script src="App.js"></script>
 </body>
 </html>
