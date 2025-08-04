@@ -1,4 +1,4 @@
-// Redirect to login if not logged in
+// start at the login page if not logged in
 if (
   window.location.pathname.includes("index.html") ||
   window.location.pathname.includes("tasks.html")
@@ -135,7 +135,7 @@ function updateStats() {
     pendingTasksElem.textContent = totalTasks;
   }
 
-  // Calculate total hours studied with hours.minutes format
+  // Calculate total hours studied with hours and minutes format
   const history = JSON.parse(localStorage.getItem("studyHistory")) || [];
   const totalSeconds = history.reduce((acc, entry) => {
     // Make sure to parse the seconds safely as number
@@ -169,14 +169,14 @@ function updateStats() {
   }
 }
 
-// Call display functions on page load
+// Call display functions as soon as the page loads
 window.onload = function () {
   renderSubjects();
   displayStudyHistory();
   updateStats();
 };
 
-// ------------------- TASKS PLANNER KANBAN LOGIC -------------------
+// Task plananer has Kabanan logic 
 
 const subjectsKey = "kanbanSubjects";
 
@@ -239,7 +239,7 @@ function renderSubjects() {
         subjects.splice(subjectIndex, 1);
         saveSubjects(subjects);
         renderSubjects();
-        updateStats(); // update dashboard stats on delete
+        updateStats(); // update the dashboard stats 
       }
     };
     subjectDropdown.appendChild(deleteSubject);

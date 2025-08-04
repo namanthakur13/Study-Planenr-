@@ -206,7 +206,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding-bottom: 20px;
-  /* Removed overflow-x: auto; */
+  /* Removed overflow */
 }
 
 .subject-card {
@@ -430,7 +430,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;              /* Full viewport height */
-  background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient background */
+  background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient background becasue it looks nice */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
 }
